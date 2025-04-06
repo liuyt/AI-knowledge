@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI算法发展时间线</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #111827;
+        }
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #9ca3af;
+            transform: translateX(-50%);
+        }
+        .era-marker {
+            position: relative;
+            z-index: 10;
+            margin: 40px 0;
+        }
+        .timeline-card {
+            max-width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid;
+            top: 20px;
+            z-index: 10;
+        }
+        .timeline-dot-left {
+            right: -10px;
+        }
+        .timeline-dot-right {
+            left: -10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        @media print {
+            .timeline-container {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .timeline-card {
+                break-inside: avoid;
+            }
+            #top-button {
+                display: none;
+            }
+        }
+        #top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-bold mb-4">AI算法发展时间线</h1>
+            <p class="text-lg text-gray-600 mb-8">从1943年至今人工智能算法的演进历程</p>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md inline-block">
+                <h2 class="text-xl font-semibold mb-4">领域分类</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="legend-item">
+                        <div class="legend-color bg-blue-500"></div>
+                        <span>神经网络/深度学习</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-green-500"></div>
+                        <span>传统机器学习</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-purple-500"></div>
+                        <span>计算机视觉</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-yellow-500"></div>
+                        <span>自然语言处理</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-red-500"></div>
+                        <span>强化学习</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bg-pink-500"></div>
+                        <span>生成式模型</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="timeline-container relative">
+            <div class="timeline-line"></div>
+            
+            <!-- 早期奠基时期（1943-1956） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">早期奠基时期</h3>
+                    <h4 class="text-lg">1943-1956</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-left border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1943</div>
+                        <h3 class="font-bold text-lg mb-1">MCP神经元模型</h3>
+                        <p class="text-sm">Warren McCulloch和Walter Pitts提出《神经活动中内在思想的逻辑演算》，奠定了人工神经网络的理论基础。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-right border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1949</div>
+                        <h3 class="font-bold text-lg mb-1">Hebb学习规则</h3>
+                        <p class="text-sm">Donald Hebb提出"同时激活的神经元之间的连接会增强"，成为神经网络学习理论的基础。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-left border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1950</div>
+                        <h3 class="font-bold text-lg mb-1">图灵测试</h3>
+                        <p class="text-sm">Alan Turing提出"机器智能"概念并设计了"图灵测试"，用来判断机器是否具有人类水平的智能。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-right border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1956</div>
+                        <h3 class="font-bold text-lg mb-1">人工智能诞生</h3>
+                        <p class="text-sm">达特茅斯会议正式提出"人工智能"(Artificial Intelligence)概念，标志着人工智能作为一个独立的研究领域正式诞生。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-left border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1957</div>
+                        <h3 class="font-bold text-lg mb-1">感知机</h3>
+                        <p class="text-sm">Frank Rosenblatt提出感知机(Perceptron)概念，这是一种简单的二元分类器，是当代神经网络的原型。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- 符号主义AI时期（1956-1969） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">符号主义AI时期</h3>
+                    <h4 class="text-lg">1956-1969</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-right border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1957</div>
+                        <h3 class="font-bold text-lg mb-1">逻辑理论家</h3>
+                        <p class="text-sm">Herbert Simon和Allen Newell开发了"逻辑理论家"(Logic Theorist)程序，能够证明数学定理，是第一个人工智能程序。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-left border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1958</div>
+                        <h3 class="font-bold text-lg mb-1">LISP编程语言</h3>
+                        <p class="text-sm">John McCarthy发明LISP编程语言，成为人工智能研究的重要工具。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-right border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1959</div>
+                        <h3 class="font-bold text-lg mb-1">机器学习术语首次使用</h3>
+                        <p class="text-sm">Arthur Samuel开发了会下西洋跳棋的程序，首次使用"机器学习"这一术语。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">1961</div>
+                        <h3 class="font-bold text-lg mb-1">强化学习概念</h3>
+                        <p class="text-sm">Marvin Minsky在《Steps Toward Artificial Intelligence》中首次提出强化学习概念。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-right border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1969</div>
+                        <h3 class="font-bold text-lg mb-1">感知机的局限</h3>
+                        <p class="text-sm">Marvin Minsky和Seymour Papert在《感知机》一书中指出单层感知机无法解决非线性可分问题(如XOR问题)，导致神经网络研究陷入低谷。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第一次AI低谷与复兴（1970-1986） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">第一次AI低谷与复兴</h3>
+                    <h4 class="text-lg">1970-1986</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-left border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1970</div>
+                        <h3 class="font-bold text-lg mb-1">DENDRAL专家系统</h3>
+                        <p class="text-sm">Edward Feigenbaum开发DENDRAL专家系统，能够分析化学物质结构。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-right border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1975</div>
+                        <h3 class="font-bold text-lg mb-1">遗传算法</h3>
+                        <p class="text-sm">John Holland提出遗传算法，借鉴生物进化原理解决优化问题。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">1977</div>
+                        <h3 class="font-bold text-lg mb-1">"盒子和箭头"模型</h3>
+                        <p class="text-sm">Michie和Chambers创造了"盒子和箭头"模型，为强化学习算法奠定基础。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-right border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1982</div>
+                        <h3 class="font-bold text-lg mb-1">Hopfield网络与新认知机</h3>
+                        <p class="text-sm">John Hopfield提出Hopfield网络，可以作为联想记忆系统；同年，福岛邦彦提出新认知机(Neocognitron)，是现代卷积神经网络的前身。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-left border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">1986</div>
+                        <h3 class="font-bold text-lg mb-1">反向传播算法</h3>
+                        <p class="text-sm">Geoffrey Hinton、David Rumelhart和Ronald Williams发表论文，正式提出反向传播算法(Back Propagation)，解决了多层神经网络的训练问题，标志着神经网络研究的复兴。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- 机器学习与统计方法兴起（1987-1999） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">机器学习与统计方法兴起</h3>
+                    <h4 class="text-lg">1987-1999</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-purple-100 p-4 border-l-4 border-purple-500">
+                        <div class="timeline-dot timeline-dot-right border-purple-500"></div>
+                        <div class="text-purple-800 font-semibold">1989</div>
+                        <h3 class="font-bold text-lg mb-1">LeNet-1</h3>
+                        <p class="text-sm">Yann LeCun将反向传播应用于卷积神经网络，并提出LeNet-1模型，用于手写数字识别。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">1989</div>
+                        <h3 class="font-bold text-lg mb-1">Q-learning算法</h3>
+                        <p class="text-sm">Christopher Watkins在博士论文中提出Q-learning算法，成为现代强化学习的重要里程碑。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-right border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1992</div>
+                        <h3 class="font-bold text-lg mb-1">支持向量机理论基础</h3>
+                        <p class="text-sm">Vladimir Vapnik提出支持向量机(SVM)理论基础，成为当时最强大的分类算法之一。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">1992</div>
+                        <h3 class="font-bold text-lg mb-1">REINFORCE算法</h3>
+                        <p class="text-sm">Williams提出REINFORCE算法，这是一种基于蒙特卡罗的策略梯度算法。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-green-100 p-4 border-l-4 border-green-500">
+                        <div class="timeline-dot timeline-dot-right border-green-500"></div>
+                        <div class="text-green-800 font-semibold">1995</div>
+                        <h3 class="font-bold text-lg mb-1">支持向量机算法</h3>
+                        <p class="text-sm">Corinna Cortes和Vladimir Vapnik正式提出支持向量机算法，成为机器学习领域的里程碑。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">1998</div>
+                        <h3 class="font-bold text-lg mb-1">强化学习理论系统化</h3>
+                        <p class="text-sm">Richard Sutton和Andrew Barto出版《Reinforcement Learning: An Introduction》，系统总结了强化学习理论和方法。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-purple-100 p-4 border-l-4 border-purple-500">
+                        <div class="timeline-dot timeline-dot-right border-purple-500"></div>
+                        <div class="text-purple-800 font-semibold">1998</div>
+                        <h3 class="font-bold text-lg mb-1">LeNet-5</h3>
+                        <p class="text-sm">Yann LeCun发表LeNet-5，是第一个成功应用于实际问题的卷积神经网络架构。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-purple-100 p-4 border-l-4 border-purple-500">
+                        <div class="timeline-dot timeline-dot-left border-purple-500"></div>
+                        <div class="text-purple-800 font-semibold">1999</div>
+                        <h3 class="font-bold text-lg mb-1">SIFT算法</h3>
+                        <p class="text-sm">David Lowe提出尺度不变特征变换(SIFT)算法，解决了图像特征在不同尺度下的匹配问题。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- 深度学习崛起（2000-2014） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">深度学习崛起</h3>
+                    <h4 class="text-lg">2000-2014</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-right border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">2000</div>
+                        <h3 class="font-bold text-lg mb-1">深度信念网络</h3>
+                        <p class="text-sm">Li Deng和Hinton提出深度信念网络(DBN)概念。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-blue-100 p-4 border-l-4 border-blue-500">
+                        <div class="timeline-dot timeline-dot-left border-blue-500"></div>
+                        <div class="text-blue-800 font-semibold">2006</div>
+                        <h3 class="font-bold text-lg mb-1">深度信念网络训练</h3>
+                        <p class="text-sm">Geoffrey Hinton提出深度信念网络的有效训练方法，标志着深度学习研究正式启动。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-purple-100 p-4 border-l-4 border-purple-500">
+                        <div class="timeline-dot timeline-dot-right border-purple-500"></div>
+                        <div class="text-purple-800 font-semibold">2009</div>
+                        <h3 class="font-bold text-lg mb-1">ImageNet数据集</h3>
+                        <p class="text-sm">Fei-Fei Li等人发布ImageNet数据集，包含超过1400万张带标注的图像，为深度学习在计算机视觉领域的应用提供了基础。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-purple-100 p-4 border-l-4 border-purple-500">
+                        <div class="timeline-dot timeline-dot-left border-purple-500"></div>
+                        <div class="text-purple-800 font-semibold">2012</div>
+                        <h3 class="font-bold text-lg mb-1">AlexNet</h3>
+                        <p class="text-sm">Alex Krizhevsky、Ilya Sutskever和Geoffrey Hinton提出AlexNet，在ImageNet竞赛中获胜，准确率远超传统算法，标志着深度学习在计算机视觉领域的突破。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-pink-100 p-4 border-l-4 border-pink-500">
+                        <div class="timeline-dot timeline-dot-right border-pink-500"></div>
+                        <div class="text-pink-800 font-semibold">2014</div>
+                        <h3 class="font-bold text-lg mb-1">生成对抗网络(GAN)</h3>
+                        <p class="text-sm">Ian Goodfellow提出生成对抗网络(GAN)，开创了生成模型研究的新方向。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-left border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2014</div>
+                        <h3 class="font-bold text-lg mb-1">Seq2Seq模型</h3>
+                        <p class="text-sm">Kyunghyun Cho等人提出序列到序列(Seq2Seq)模型，为机器翻译等任务提供了新框架。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-right border-red-500"></div>
+                        <div class="text-red-800 font-semibold">2014</div>
+                        <h3 class="font-bold text-lg mb-1">深度Q网络(DQN)</h3>
+                        <p class="text-sm">DeepMind提出深度Q网络(DQN)，在多种Atari游戏中达到人类水平。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 深度学习繁荣与革新（2015-2019） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">深度学习繁荣与革新</h3>
+                    <h4 class="text-lg">2015-2019</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-left border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2015</div>
+                        <h3 class="font-bold text-lg mb-1">注意力机制</h3>
+                        <p class="text-sm">Bahdanau等人提出注意力机制(Attention Mechanism)，极大提升了序列到序列模型的性能。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-purple-100 p-4 border-l-4 border-purple-500">
+                        <div class="timeline-dot timeline-dot-right border-purple-500"></div>
+                        <div class="text-purple-800 font-semibold">2015</div>
+                        <h3 class="font-bold text-lg mb-1">ResNet残差网络</h3>
+                        <p class="text-sm">Kaiming He等人提出残差网络(ResNet)，通过跳跃连接解决深层网络的退化问题，允许网络达到前所未有的深度(152层)。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">2016</div>
+                        <h3 class="font-bold text-lg mb-1">AlphaGo</h3>
+                        <p class="text-sm">DeepMind的AlphaGo击败世界围棋冠军李世石，展示了深度强化学习的惊人能力。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-right border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2017</div>
+                        <h3 class="font-bold text-lg mb-1">Transformer架构</h3>
+                        <p class="text-sm">Ashish Vaswani等人发表论文《Attention is All You Need》，提出Transformer架构，彻底改变了NLP领域的技术路线。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-left border-red-500"></div>
+                        <div class="text-red-800 font-semibold">2017</div>
+                        <h3 class="font-bold text-lg mb-1">AlphaGo Zero</h3>
+                        <p class="text-sm">DeepMind提出AlphaGo Zero，通过纯自我对弈学习超越所有之前版本的AlphaGo。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-right border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2018</div>
+                        <h3 class="font-bold text-lg mb-1">BERT</h3>
+                        <p class="text-sm">Google发布BERT模型，首次将双向Transformer应用于语言表示，在多项NLP任务上取得突破性进展。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-left border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2018</div>
+                        <h3 class="font-bold text-lg mb-1">GPT-1</h3>
+                        <p class="text-sm">OpenAI发布GPT-1，采用单向Transformer架构，包含12层和1.17亿参数。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-red-100 p-4 border-l-4 border-red-500">
+                        <div class="timeline-dot timeline-dot-right border-red-500"></div>
+                        <div class="text-red-800 font-semibold">2018</div>
+                        <h3 class="font-bold text-lg mb-1">AlphaZero</h3>
+                        <p class="text-sm">DeepMind提出AlphaZero，一个可以学习下围棋、国际象棋和日本将棋的通用算法框架。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-left border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2019</div>
+                        <h3 class="font-bold text-lg mb-1">GPT-2</h3>
+                        <p class="text-sm">OpenAI发布GPT-2，参数规模扩大到15亿，展现出非常规的文本生成能力。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- 大模型与通用人工智能时代（2020至今） -->
+            <div class="era-marker">
+                <div class="bg-gray-800 text-white rounded-full py-3 px-6 mx-auto text-center w-64 shadow-lg">
+                    <h3 class="text-xl font-bold">大模型与通用人工智能时代</h3>
+                    <h4 class="text-lg">2020至今</h4>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-right border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2020</div>
+                        <h3 class="font-bold text-lg mb-1">GPT-3</h3>
+                        <p class="text-sm">OpenAI发布GPT-3，拥有1750亿参数，展示出令人惊讶的少样本学习和零样本学习能力。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-pink-100 p-4 border-l-4 border-pink-500">
+                        <div class="timeline-dot timeline-dot-left border-pink-500"></div>
+                        <div class="text-pink-800 font-semibold">2020</div>
+                        <h3 class="font-bold text-lg mb-1">DDPM</h3>
+                        <p class="text-sm">Ho等人提出去噪扩散概率模型(DDPM)，为图像生成提供了新范式。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-pink-100 p-4 border-l-4 border-pink-500">
+                        <div class="timeline-dot timeline-dot-right border-pink-500"></div>
+                        <div class="text-pink-800 font-semibold">2021</div>
+                        <h3 class="font-bold text-lg mb-1">DALL-E</h3>
+                        <p class="text-sm">OpenAI发布DALL-E，将GPT-3架构应用于文本到图像生成。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-left border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2022</div>
+                        <h3 class="font-bold text-lg mb-1">ChatGPT</h3>
+                        <p class="text-sm">OpenAI发布ChatGPT，基于GPT-3.5进行了对话优化，展示出前所未有的交互能力。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-pink-100 p-4 border-l-4 border-pink-500">
+                        <div class="timeline-dot timeline-dot-right border-pink-500"></div>
+                        <div class="text-pink-800 font-semibold">2022</div>
+                        <h3 class="font-bold text-lg mb-1">Stable Diffusion</h3>
+                        <p class="text-sm">StabilityAI发布Stable Diffusion，这是一种基于Latent Diffusion Model的开源文本到图像生成模型。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-left border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2023</div>
+                        <h3 class="font-bold text-lg mb-1">GPT-4</h3>
+                        <p class="text-sm">OpenAI发布GPT-4，据报道有超过1万亿参数，展示出更接近人类水平的推理能力。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-right border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2023</div>
+                        <h3 class="font-bold text-lg mb-1">Llama 2</h3>
+                        <p class="text-sm">Meta发布Llama2系列开源大模型，为AI研究和应用带来了新机遇。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 pr-8 md:text-right">
+                    <div class="timeline-card ml-auto bg-pink-100 p-4 border-l-4 border-pink-500">
+                        <div class="timeline-dot timeline-dot-left border-pink-500"></div>
+                        <div class="text-pink-800 font-semibold">2024</div>
+                        <h3 class="font-bold text-lg mb-1">Sora</h3>
+                        <p class="text-sm">OpenAI发布Sora，一个能根据文本提示生成高质量视频的模型。</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2"></div>
+                <div class="md:w-1/2 pl-8">
+                    <div class="timeline-card bg-yellow-100 p-4 border-l-4 border-yellow-500">
+                        <div class="timeline-dot timeline-dot-right border-yellow-500"></div>
+                        <div class="text-yellow-800 font-semibold">2024</div>
+                        <h3 class="font-bold text-lg mb-1">GPT-4o</h3>
+                        <p class="text-sm">OpenAI发布GPT-4o，在多模态理解和生成方面取得重大进展。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">AI算法发展趋势分析</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">主要趋势</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><span class="font-medium">从专用到通用：</span>早期算法针对特定任务优化，现代算法越来越趋向解决多种任务的通用能力</li>
+                            <li><span class="font-medium">从小数据到大数据：</span>模型规模和数据需求呈指数级增长，从百万参数到数千亿参数</li>
+                            <li><span class="font-medium">多模态融合：</span>不同领域的技术逐渐融合，特别是视觉与语言的结合</li>
+                            <li><span class="font-medium">开源与封闭的角力：</span>在大模型时代，开源与商业封闭模型双线发展</li>
+                            <li><span class="font-medium">架构统一化：</span>Transformer架构在多个领域取得突破，成为主导架构</li>
+                            <li><span class="font-medium">从监督学习到自监督学习：</span>减少对标注数据的依赖，更多利用原始数据的结构</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">未来发展方向</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>更高效的模型架构，在保持性能的同时减少计算需求</li>
+                            <li>更强的推理能力和因果理解</li>
+                            <li>更安全可控的模型，解决幻觉和偏见问题</li>
+                            <li>模型与外部工具和环境的更深度集成</li>
+                            <li>边缘AI与云端AI的协同发展</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="mt-6 text-gray-700">
+                    这些算法的发展不仅推动了技术进步，也深刻改变了我们的社会和经济结构，为未来人工智能的发展奠定了基础。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <button id="top-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to top button
+        document.getElementById('top-button').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Fade in animation for timeline cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.timeline-card');
+            
+            function checkScroll() {
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight * 0.9) {
+                        card.style.opacity = "1";
+                    }
+                });
+            }
+            
+            // Set initial opacity
+            cards.forEach(card => {
+                card.style.opacity = "0";
+                card.style.transition = "opacity 0.5s ease-in-out, transform 0.3s ease";
+            });
+            
+            // Check initial positions
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+</html>
